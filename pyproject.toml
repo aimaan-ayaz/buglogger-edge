@@ -1,0 +1,14 @@
+[project]
+name = "owasp-blt-poc"
+version = "0.1.0"
+description = "A functional Bug Reporting PoC built with Python Cloudflare Workers, D1 SQL, and HTMX for the OWASP BLT-Next GSoC proposal."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "webtypy>=0.1.7",
+]
+
+[dependency-groups]
+dev = [
+    "workers-py"
+]
