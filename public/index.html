@@ -1,1 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Logger</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
+    <style>
+        /* * {
+            color: white;
+        } */
+        body {
+            background-color: #030712;
+        }
+        h1 {
+            font-weight: 800;
+            font-family: "inter", sans-serif;
+        }
+        #heading {
+            color: white;
+            text-align: center;
+        }
+        p {
+            margin-top: -20px;
+            margin-bottom: 50px;
+            font-family: "lexend", sans-serif;
+        }
+        label {
+            color: white;
+            font-family: "inter", sans-serif;
+        }
+        .fillin {
+            background-color: #000513;
+            border-color: #818da4;
+            border-style: solid;
+            border-width: 2px;
+            border-radius: 12px;
+        }
+        #fields {
+            text-align: center;
+        }
+        textarea {
+            padding: 10px;
+            font-family: "lexend", sans-serif;
+            color: white;
+            width: 300px;
+            height: 100px;
+        }
+        input {
+            color: white;
+            font-family: "lexend", sans-serif;
+            padding: 10px;
+            height: 30px;
+            width:250px;
+        }
+        select {
+            color: white;
+            height: 40px;
+            width: 200px;
+        }
+        option {
+            color: white;
+            font-family: "lexend", sans-serif;
+            text-align: center;
+            
+        }
+        button {
+            font-size: large;
+            
+        }
+        #buttons {
+            margin-top: 20px;
+            margin-right: auto;
+            margin-left: auto;
+            width: 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+        #submitbutton {
+            font-family: "inter";
+            background-color: rgb(255, 255, 255);
+            border-style: solid;
+            border-color: #818da4;
+            border-radius: 15px;
+            width: 100px;
+            height: 40px;
+        }
+        #submitbutton:hover {
+            background-color: rgb(221, 221, 221);
+            cursor: pointer;
+        }
+        #viewbutton {
+            font-family: "inter";
+            background-color: transparent;
+            color: rgb(255, 255, 255);
+            border-style: solid;
+            border-color: #818da4;
+            border-radius: 15px;
+            width: 120px;
+            height: 40px;
+        }
+        #viewbutton:hover {
+            background-color: rgba(255, 255, 255, 0.111);
+            cursor: pointer;
+        }
+        .grid {
+            margin-top: 30px;
+            display: grid;
+            grid-template-columns: 80px 1fr 2fr 100px;
+            gap: 10px;
+            color: white;
+            font-family: "lexend", sans-serif;
+        }
+        .header {
+            font-family: "inter", sans-serif;
+            font-weight: bold;
+            color: white;
+        }
+        #add-confirmation {
+            color: white;
+            font-family: "inter", sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+    </style>
+    </script>
+</head>
+<body>
+    <div id="heading">
+    <h1>Bug Logger</h1>
+    <p>Log in your bugs easily</p>
+    </div>
+
+    <form hx-post="/bug-log" hx-target="#add-confirmation">
+        <div id="fields">
+        <label>Title</label><br>
+        <input class="fillin" type="text" name="title" required><br><br>
+
+        <label>Description</label><br>
+        <textarea class="fillin" name="description" rows="4" required></textarea><br><br>
+
+        <label>Severity:</label><br>
+        <select class="fillin" name="severity">
+            <option>Low</option>
+            <option>Medium</option>
+            <option>High</option>
+        </select> <br><br>
+        </div>
+        <div id="buttons">
+        <button id="submitbutton" type="submit">Submit</button>
+    </form>
+    <br>
+    <button id="viewbutton" hx-get="/bug-load" hx-target="#allbugs">View Bugs</button>
+    </div>
+    <div id="add-confirmation"></div>
+    <div id="allbugs"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js" integrity="sha384-/TgkGk7p307TH7EXJDuUlgG3Ce1UVolAOFopFekQkkXihi5u/6OCvVKyz1W+idaz" crossorigin="anonymous"></script>
+</body>
+</html>
